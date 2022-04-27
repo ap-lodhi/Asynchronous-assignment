@@ -96,4 +96,24 @@ function display(movieDetail){
 
 }
 
+
+
+document.querySelector('#sort-btn').addEventListener('change', ()=>{
+    document.querySelector('#movies').innerHTML = "";
+    var btnValue = document.querySelector("#sort-btn").value;
+    if(btnValue == 'lh'){
+        movieDetail.sort((a, b)=>{
+            return a.Rating-b.Rating;
+        })
+    }
+    else if(btnValue == 'hl'){
+        movieDetail.sort((a, b)=>{
+            return b.Rating-a.Rating;
+        })
+
+    }else{
+        movieDetail = movieData;
+    }
+    display(movieDetail);
+})
 display(movieDetail);
